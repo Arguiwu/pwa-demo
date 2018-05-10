@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Hello PWA</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="manifest" href="manifest.json">
+</head>
+<body>
+	<h3>Hello PWA</h3>
+	<p>测试更新</p>
+	<p id="userList"></p>
+	<script>
+		if(navigator.serviceWorker !== null) {
+			navigator.serviceWorker.register('sw.js').then(function(registartion) {
+				console.log('支持sw:',registartion.scope);
+			});
+		}
+		window.onload = function() {
+			fetch('http://rap2api.taobao.org/app/mock/11637/127.0.0.1:8080/admin/user/lists').then(res => {
+				return res.json();
+			}).then(res => {
+				const data = res.data.users;
+				let html = '';
+				for(let i = 0; i < data.length; i++) {
+					html += '<p>'+data[i].name+'</p>';
+				}
+				document.getElementById('userList').innerHTML = html;
+			});
+		};
+	</script>
+</body>
+</html>
