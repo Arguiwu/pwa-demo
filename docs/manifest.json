@@ -1,6 +1,6 @@
 {
-	"name": "小鸟云官网测试",
-	"short_name": "小鸟云",
+	"name": "PWA测试",
+	"short_name": "PWA",
 	"start_url": "/index.html",
 	"display": "standalone",
 	"background_color": "#fff",
