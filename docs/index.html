@@ -17,16 +17,16 @@
 				console.log('支持sw:',registartion.scope);
 			});
 		}
-		window.addEventListener('beforeinstallprompt', function(e) {
-			e.userChoice.then(function() {
-				console.log(choiceResult.outcome);
-				if(choiceResult.outcome == 'dismissed') {
-					console.log('User cancelled home screen install');
-				}else {
-					console.log('User added to home screen');
-				}
-			});
-		});
+		// window.addEventListener('beforeinstallprompt', function(e) {
+		// 	e.userChoice.then(function(choiceResult) {
+		// 		console.log(choiceResult.outcome);
+		// 		if(choiceResult.outcome == 'dismissed') {
+		// 			console.log('User cancelled home screen install');
+		// 		}else {
+		// 			console.log('User added to home screen');
+		// 		}
+		// 	});
+		// });
 		window.onload = function() {
 			// fetch('http://rap2api.taobao.org/app/mock/11637/127.0.0.1:8080/admin/user/lists').then(res => {
 			// 	return res.json();
